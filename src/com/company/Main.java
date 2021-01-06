@@ -114,9 +114,20 @@ import java.util.Scanner;
                         op = operator[operator.length - 1];
 
                         if (op.contains("/")) {
-                            System.out.println(operation_del(a, b, op));
+
+                            if (flag==1) {
+                                System.out.println(intToRoman(operation_del_rome(a, b, op)));
+                            }
+                            else {
+                            System.out.println(operation_del(a, b, op));}
                         } else {
-                            System.out.println(operation(a, b, op));
+
+                            if (flag==1) {
+                                System.out.println(intToRoman(operation(a, b, op)));
+                            }
+                            else {
+                                System.out.println(operation(a, b, op));
+                            }
                         }
                     } catch (Exception e) {
                         System.out.println("Ошибка. Попробуйте ещё раз.");
@@ -133,6 +144,15 @@ import java.util.Scanner;
             }
 
             return(double)a / b;
+
+        }
+        private static int operation_del_rome(int a, int b, String op) {
+
+            if (b == 0) {
+                System.out.println("Деление на 0 запрещено");
+            }
+
+            return a / b;
 
         }
 
